@@ -8,3 +8,7 @@ work/
 .options
 /target/
 /target/
+.idea
+*.iml
+/.gradle/
+/build/
