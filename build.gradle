@@ -1,14 +1,14 @@
 apply plugin: 'java'
 
-group = 'org.jenkins-ci.plugins'
-version = '1.6.2-SNAPSHOT'
+def git_commit = "git rev-parse --short HEAD".execute().text.trim()
+
+group = 'websphere.services'
+version = "1.0-${git_commit}"
 
 description = """WebSphere Deployer Plugin"""
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
-
-
 
 repositories {
      jcenter()
@@ -19,7 +19,7 @@ repositories {
 
 dependencies {
     compile group: 'commons-lang', name: 'commons-lang', version:'2.5'
-    compile(group: 'com.ibm.ws', name: 'admin', version:'8.5.0')
-    compile(group: 'com.ibm.ws', name: 'orb', version:'8.5.0')
-    compile(group: 'com.ibm.ws.security', name: 'crypto', version:'8.5.0')
+    compileOnly(group: 'com.ibm.ws', name: 'admin', version:'8.5.0')
+    compileOnly(group: 'com.ibm.ws', name: 'orb', version:'8.5.0')
+    compileOnly(group: 'com.ibm.ws.security', name: 'crypto', version:'8.5.0')
 }
